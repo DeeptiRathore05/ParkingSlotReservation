@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #83a4d4, #b6fbff);
+            background-size: cover;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dashboard-container {
+            background-color: rgba(255, 255, 255, 0.92);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+            max-width: 480px;
+            width: 100%;
+            text-align: center;
+            backdrop-filter: blur(6px);
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        h2 {
+            color: #2c3e50;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .admin-links {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .admin-links a {
+            text-decoration: none;
+            background: #3498db;
+            color: white;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 14px rgba(0, 0, 0, 0.1);
+        }
+
+        .admin-links a:hover {
+            background: #1c5980;
+            transform: translateY(-2px);
+        }
+
+        .admin-links a:active {
+            transform: scale(0.98);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <h2>Welcome, Admin</h2>
+        <div class="admin-links">
+            <a href="/admin/users">👥 View All Users</a>
+            <a href="/admin/reservations">📄 View All Reservations</a>
+            <a href="/admin/slots">🅿️ Manage Parking Slots</a>
+        </div>
+    </div>
+</body>
+</html>

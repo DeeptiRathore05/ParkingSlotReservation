@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Booking Successful</title>
+    <style>
+        body {
+            background-color: #e6f2ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+
+        h2 {
+            color: #003366;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #cce6ff;
+            color: #003366;
+            text-decoration: none;
+            border-radius: 5px;
+            border: 1px solid #99c2ff;
+            transition: background-color 0.3s ease;
+        }
+
+        a:hover {
+            background-color: #99ccff;
+        }
+    </style>
+</head>
+<body>
+    <h2 th:if="${message}" th:text="${message}">Booking Success!</h2>
+    <a href="/">Back to Home</a> |
+    <a href="/reservations">View All Reservations</a>
+</body>
+</html>

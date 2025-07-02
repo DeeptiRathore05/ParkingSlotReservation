@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>All Reservations</title>
+    <style>
+        body {
+            background-color: #e6f2ff;
+            font-family: Arial, sans-serif;
+            padding: 30px;
+        }
+
+        h2 {
+            text-align: center;
+            color: #003366;
+            margin-bottom: 30px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #ffffff;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid #ccc;
+        }
+
+        th {
+            background-color: #cce6ff;
+            color: #003366;
+        }
+
+        tr:hover {
+            background-color: #f0f8ff;
+        }
+
+        a {
+            color: #003366;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: #cce6ff;
+            color: #003366;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            border: 1px solid #99c2ff;
+            transition: background-color 0.3s;
+        }
+
+        .back-link:hover {
+            background-color: #99ccff;
+        }
+    </style>
+</head>
+<body>
+    <h2>All Parking Reservations</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>User</th>
+                <th>Vehicle</th>
+                <th>Slot</th>
+                <th>Start</th>
+                <th>End</th>
+                <th>Payment</th>
+                <th>Cancel</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="res : ${reservations}">
+                <td th:text="${res.id}"></td>
+                <td th:text="${res.user != null ? res.user.email : 'N/A'}"></td>
+                <td th:text="${res.vehicleNumber}"></td>
+                <td th:text="${res.parkingSlot != null ? res.parkingSlot.slotNumber : 'N/A'}"></td>
+                <td th:text="${#dates.format(res.startTime, 'yyyy-MM-dd HH:mm')}"></td>
+                <td th:text="${#dates.format(res.endTime, 'yyyy-MM-dd HH:mm')}"></td>
+                <td th:text="${res.paymentStatus}? 'Paid' : 'Pending'"></td>
+                <td><a th:href="@{'/cancel/' + ${res.id}}">Cancel</a></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="/dashboard" class="back-link">Back to Home</a>
+</body>
+</html>
