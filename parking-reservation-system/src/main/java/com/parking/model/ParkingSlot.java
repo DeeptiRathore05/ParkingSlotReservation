@@ -4,7 +4,7 @@ import jakarta.persistence.*;
 
 @Entity
 public class ParkingSlot {
-
+	//This is parking
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
