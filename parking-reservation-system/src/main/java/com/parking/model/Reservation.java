@@ -25,26 +25,8 @@ public class Reservation {
     @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm")
     @Temporal(TemporalType.TIMESTAMP)
     private Date endTime;
-    private String status = "Booked";      // Default value
-    private boolean refunded = false;      // Refund flag
-
-
-    public String getStatus() {
-		return status;
-	}
-
-	public void setStatus(String status) {
-		this.status = status;
-	}
-
-	public boolean isRefunded() {
-		return refunded;
-	}
-
-	public void setRefunded(boolean refunded) {
-		this.refunded = refunded;
-	}
-
+    
+ 
 	private boolean paymentStatus;
 
     @ManyToOne

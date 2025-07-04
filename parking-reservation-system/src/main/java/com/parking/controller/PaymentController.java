@@ -22,7 +22,6 @@ public class PaymentController {
     @Autowired
     private ReservationService reservationService;
 
-    // Show the fake payment form
     @GetMapping("/form/{id}")
     public String showPaymentForm(@PathVariable Long id, Model model) {
         Reservation reservation = reservationService.getReservationById(id);
